@@ -1,0 +1,6 @@
+planning:
+    path:   /planning
+    defaults: { _controller: PlanningBundle:Default:index }
+
+toiba_fullcalendar:
+    resource: "@FullCalendarBundle/Resources/config/routing.yaml"

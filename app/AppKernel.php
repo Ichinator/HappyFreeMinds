@@ -17,6 +17,12 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
+            new PlanningBundle\PlanningBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new UserBundle\UserBundle(),
+            new AdminBundle\AdminBundle(),
+            //new AncaRebeca\FullCalendarBundle\FullCalendarBundle(),
+            new Toiba\FullCalendarBundle\FullCalendarBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

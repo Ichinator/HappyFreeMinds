@@ -1,0 +1,10 @@
+services:
+    PlanningBundle\EventListener\FullCalendarListener:
+        arguments: ['@doctrine.orm.entity_manager', '@router']
+        tags:
+            - { name: 'kernel.event_listener', event: 'fullcalendar.set_data', method: loadEvents }
+
+
+#    planning.example:
+#        class: PlanningBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
