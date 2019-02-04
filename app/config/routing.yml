@@ -8,7 +8,7 @@ user:
 
 planning:
     resource: "@PlanningBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /planning
 
 app:
     resource: '@AppBundle/Controller/'
@@ -16,3 +16,6 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+#_liip_imagine:
+#    resource: "@LiipImagineBundle/Resources/config/routing.xml"

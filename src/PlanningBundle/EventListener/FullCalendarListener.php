@@ -37,22 +37,21 @@ class FullCalendarListener
         // Modify the query to fit to your entity and needs
         // Change b.beginAt by your start date in your custom entity
 
-        //$ateliers = $this->em->getRepository(Ateliers::class)->findAll();
+        $ateliers = $this->em->getRepository(Ateliers::class)->findAll();
 
-        $ateliers = $this->em->getRepository(Ateliers::class)
+        /*$ateliers = $this->em->getRepository(Ateliers::class)
             ->createQueryBuilder('b')
             ->andWhere('b.beginAt BETWEEN :startDate and :endDate')
             ->setParameter('startDate', $startDate->format('Y-m-d H:i:s'))
             ->setParameter('endDate', $endDate->format('Y-m-d H:i:s'))
-            ->getQuery()->getResult();
+            ->getQuery()->getResult();*/
 
         foreach($ateliers as $atelier) {
-
             // this create the events with your own entity (here booking entity) to populate calendar
             $atelierEvent = new Event(
                 $atelier->getTitle(),
-                $atelier->getBeginAt(),
-                $atelier->getEndAt() // If the end date is null or not defined, it creates a all day event
+                $atelier->getStart(),
+                $atelier->getEnd() // If the end date is null or not defined, it creates a all day event
             );
 
             /*
@@ -66,7 +65,7 @@ class FullCalendarListener
             // $bookingEvent->setCustomField('borderColor', $booking->getColor());
 
             $atelierEvent->setUrl(
-                $this->router->generate('atelier_show', array(
+                $this->router->generate('planning', array(
                     'id' => $atelier->getId(),
                 ))
             );

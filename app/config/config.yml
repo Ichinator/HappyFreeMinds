@@ -10,6 +10,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    #app.path.ateliers_images: /uploads/images/ateliers
 
 framework:
     templating:
@@ -40,6 +41,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+            - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -83,3 +86,19 @@ fos_user:
     from_email:
         address: "%mailer_user%"
         sender_name: "%mailer_user%"
+
+
+fos_ck_editor:
+    default_config: adminConfig
+    configs:
+        adminConfig:
+            # More config here https://ckeditor.com/old/sites/default/files/uploads/Complete%20List%20of%20Toolbar%20Items%20for%20CKEditor.pdf
+            toolbar:    [ [ "Source" ], [ "Maximize" ],["Bold","Italic", "Underline","Strike", "Subscript", "Superscript", "RemoveFormat", "TextColor"], ["Outdent", "Indent", "Blockquote", "CreateDiv", "JustifyLeft","JustifyCenter", "JustifyRight"] ]
+            uiColor:                "#45aaf2"
+
+      #  vich_uploader:
+       #     db_driver: orm
+        #    mappings:
+         #           ateliers_images:
+          #              uri_prefix:         '%app.path.ateliers_images%'
+           #             upload_destination: '%kernel.project_dir%/public%app.path.ateliers_images%'

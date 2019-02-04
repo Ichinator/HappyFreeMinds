@@ -12,6 +12,10 @@
         <div class="container-fluid">
             {% block body %}
                 {% include 'default/navbar.html.twig' %}
+
+                {% if is_granted("ROLE_ADMIN") %}
+                    {% include 'default/secondNavbar.html.twig' %}
+                {% endif %}
             {% endblock %}
             {% block javascripts %}
                 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

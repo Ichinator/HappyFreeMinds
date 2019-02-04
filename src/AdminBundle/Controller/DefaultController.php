@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
-    public function indexAction(Request $request)
+    public function createAteliersAction(Request $request)
     {
         $ateliers = new Ateliers();
         $form = $this->createForm(AteliersType::class, $ateliers);
@@ -26,6 +26,10 @@ class DefaultController extends Controller
         }
 
         $formView = $form->createView();
-        return $this->render('AdminBundle:Default:index.html.twig', array('form'=>$formView));
+        return $this->render('AdminBundle:Default:ateliers.html.twig', array('form'=>$formView));
+    }
+
+    public function indexAction(){
+        return $this->render('AdminBundle:Default:index.html.twig');
     }
 }

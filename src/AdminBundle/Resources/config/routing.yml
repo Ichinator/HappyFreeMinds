@@ -2,6 +2,7 @@ admin_homepage:
     path:     /
     defaults: { _controller: AdminBundle:Default:index }
 
-ateliers:
-    path:     /ateliers
-    defaults: { _controller: AdminBundle:Default:ateliers }
+createAteliers:
+    path:     /createAteliers
+    defaults: { _controller: AdminBundle:Default:createAteliers }
+

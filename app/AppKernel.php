@@ -23,6 +23,8 @@ class AppKernel extends Kernel
             new AdminBundle\AdminBundle(),
             //new AncaRebeca\FullCalendarBundle\FullCalendarBundle(),
             new Toiba\FullCalendarBundle\FullCalendarBundle(),
+            new FOS\CKEditorBundle\FOSCKEditorBundle(),
+            //new Liip\ImagineBundle\LiipImagineBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

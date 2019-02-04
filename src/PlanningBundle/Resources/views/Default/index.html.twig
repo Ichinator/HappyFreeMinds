@@ -25,28 +25,34 @@
     <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/lib/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
+    <!--<script type="text/javascript" src="{#{{ asset('bundles/fullcalendar/js/fullcalendar/fullcalendar.default-settings.js') }}#}"></script>-->
+    <script type="text/javascript" src="{{ asset('bundles/fullcalendar/js/fullcalendar/locale-all.js') }}"></script>
     <script type="text/javascript">
-
         $(function () {
             $('#calendar-holder').fullCalendar({
+                eventColor: '#758022',
+                firstDay: 1,
                 locale: 'fr',
                 header: {
                     left: 'prev, next, today',
                     center: 'title',
                     right: 'month, agendaWeek, agendaDay'
                 },
+                defaultView: 'month',
                 lazyFetching: true,
                 navLinks: true,
+                selectable: true,
+                editable: true,
+                eventDurationEditable: true,
                 eventSources: [
                     {
-                        url: "{{ path('fullcalendar_load_events') }}",
+                        url: '{{ path('fullcalendar_load_events') }}',
                         type: 'POST',
-                        data:  {
+                        data: {
                             filters: {}
                         },
-                        error: function () {
-                            alert('There was an error while fetching FullCalendar!');
+                        error: function (error) {
+                            console.log(error);
                         }
                     }
                 ]

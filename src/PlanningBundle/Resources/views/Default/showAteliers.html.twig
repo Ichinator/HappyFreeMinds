@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    {% for atelier in ateliers %}
+
+        {% if atelier.end > date('now'|date('Y/m/d')) %}
+            <div class="jumbotron">
+                <h1 class="text-center">{{ atelier.title }}</h1>
+                <h3 class="text-center">Du {{ atelier.start|date("d/m/Y") }} à {{ atelier.start|date("h") }} heure
+                    {% if atelier.start|date("i") != 0 %}
+                        {{ atelier.start|date("i") }}
+                    {% endif %}
+                    au {{ atelier.end|date("d/m/Y") }} à {{ atelier.end|date("h") }} heure
+
+                    {% if atelier.end|date("i") != 0 %}
+                        {{ atelier.end|date("i") }}
+                    {% endif %}
+
+                </h3>
+                {{ atelier.description|raw }}
+            </div>
+        {% endif %}
+
+
+
+    {% endfor %}
+
+{% endblock %}

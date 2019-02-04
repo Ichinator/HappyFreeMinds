@@ -2,10 +2,12 @@
 
 namespace PlanningBundle\Form;
 
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+//use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class AteliersType extends AbstractType
 {
@@ -17,7 +19,12 @@ class AteliersType extends AbstractType
         $builder->add('title')
             ->add('start')
             ->add('end')
-            ->add('description')
+            ->add('description', CKEditorType::class)
+            /*->add('imageFile', VichImageType::class, array(
+                'required'      => true,
+                'allow_delete'  => false,
+                'download_link' => false,
+            ))*/
             ->add('submit', SubmitType::class);
     }/**
      * {@inheritdoc}
