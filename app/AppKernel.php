@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             //new AncaRebeca\FullCalendarBundle\FullCalendarBundle(),
             new Toiba\FullCalendarBundle\FullCalendarBundle(),
             new FOS\CKEditorBundle\FOSCKEditorBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
             //new Liip\ImagineBundle\LiipImagineBundle(),
         ];
 

@@ -47,11 +47,12 @@ class FullCalendarListener
             ->getQuery()->getResult();*/
 
         foreach($ateliers as $atelier) {
-            // this create the events with your own entity (here booking entity) to populate calendar
+            // this create the events with your own entity (here ateliers entity) to populate calendar
             $atelierEvent = new Event(
                 $atelier->getTitle(),
                 $atelier->getStart(),
-                $atelier->getEnd() // If the end date is null or not defined, it creates a all day event
+                $atelier->getEnd(), // If the end date is null or not defined, it creates a all day event$
+                $atelier->getId()
             );
 
             /*

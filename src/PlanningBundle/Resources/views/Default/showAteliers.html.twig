@@ -18,6 +18,7 @@
                     {% endif %}
 
                 </h3>
+                <img src="{{ vich_uploader_asset(atelier, 'imageFile', 'PlanningBundle\\Entity\\Ateliers') }}" alt="{{ atelier.image }}" class="mx-auto d-block"/>
                 {{ atelier.description|raw }}
             </div>
         {% endif %}

@@ -4,15 +4,17 @@ namespace PlanningBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-//use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Schedule
  *
  * @ORM\Table(name="ateliers")
  * @ORM\Entity(repositoryClass="PlanningBundle\Repository\AteliersRepository")
+ * @Vich\Uploadable
  */
 class Ateliers
 {
@@ -57,7 +59,7 @@ class Ateliers
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-//    private $image;
+    private $image;
 
     /**
      * @Vich\UploadableField(mapping="ateliers_images", fileNameProperty="image")
@@ -65,7 +67,7 @@ class Ateliers
      *
      * @Assert\NotBlank(message="Vous avez oublié l image")
      */
-   // private $imageFile;
+    private $imageFile;
 
     /**
      * Get id
@@ -157,7 +159,7 @@ class Ateliers
         return $this->description;
     }
 
-/*
+
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
@@ -185,5 +187,4 @@ class Ateliers
     {
         return $this->image;
     }
-*/
 }

@@ -7,7 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-//use Vich\UploaderBundle\Form\Type\VichImageType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class AteliersType extends AbstractType
 {
@@ -20,13 +20,15 @@ class AteliersType extends AbstractType
             ->add('start')
             ->add('end')
             ->add('description', CKEditorType::class)
-            /*->add('imageFile', VichImageType::class, array(
+            ->add('imageFile', VichImageType::class, array(
                 'required'      => true,
                 'allow_delete'  => false,
                 'download_link' => false,
-            ))*/
+            ))
             ->add('submit', SubmitType::class);
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

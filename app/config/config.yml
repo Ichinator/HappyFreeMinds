@@ -10,7 +10,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-    #app.path.ateliers_images: /uploads/images/ateliers
+    app.path.ateliers_images: /uploads/images/Ateliers
 
 framework:
     templating:
@@ -96,9 +96,10 @@ fos_ck_editor:
             toolbar:    [ [ "Source" ], [ "Maximize" ],["Bold","Italic", "Underline","Strike", "Subscript", "Superscript", "RemoveFormat", "TextColor"], ["Outdent", "Indent", "Blockquote", "CreateDiv", "JustifyLeft","JustifyCenter", "JustifyRight"] ]
             uiColor:                "#45aaf2"
 
-      #  vich_uploader:
-       #     db_driver: orm
-        #    mappings:
-         #           ateliers_images:
-          #              uri_prefix:         '%app.path.ateliers_images%'
-           #             upload_destination: '%kernel.project_dir%/public%app.path.ateliers_images%'
+vich_uploader:
+    db_driver: orm
+    mappings:
+        ateliers_images:
+            uri_prefix:         '%app.path.ateliers_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/Ateliers'
+            #upload_destination: '%kernel.project_dir%/public%app.path.ateliers_images%'
