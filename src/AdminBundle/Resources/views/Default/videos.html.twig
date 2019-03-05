@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+{% form_theme formTheme 'bootstrap_4_layout.html.twig' %}
+{% form_theme formVideo 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    {{ parent() }}
+    {{ form_start(formTheme) }}
+    {{ form_widget(formTheme) }}
+    {{ form_end(formTheme) }}
+
+    {{ form_start(formVideo) }}
+    {{ form_widget(formVideo) }}
+    {{ form_end(formVideo) }}
+
+    <table>
+        <tr>
+            <th>Titre de la vidéo</th>
+            <th>URL de la vidéo</th>
+            <th>Thématique de la vidéo</th>
+        </tr>
+        {% for video in videos %}
+            <tr>
+                <td>{{ video.title }}</td>
+                <td><a href="{{ video.path }}">{{ video.path }}</a> </td>
+                <td>{{ video.theme }}</td>
+                <td>
+                    <a href="#">
+                        <i class="fas fa-pen-square fa-3x"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-trash fa-3x"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

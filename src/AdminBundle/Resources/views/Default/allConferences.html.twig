@@ -1,0 +1,38 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+   {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/CSS/fontAwesome.css') }}">
+    <style>
+        table tr td
+        {
+            padding-right: 70px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <table>
+        <tr>
+            <th>Titre</th>
+            <th>Date de début</th>
+            <th>Date de fin</th>
+            <th>Actions possibles</th>
+        </tr>
+        {% for conference in conferences %}
+            <tr>
+                <td>{{ conference.title }}</td>
+                <td>{{ conference.start|date("d/m/Y") }}</td>
+                <td>{{ conference.end|date("d/m/Y") }}</td>
+                <td>
+                    <a href="{{ path('modifyConferences',{ 'id': conference.id}) }}">
+                        <i class="fas fa-pen-square fa-3x"></i>
+                    </a>
+                    <a href="{{ path('removeConferences',{ 'id': conference.id}) }}">
+                        <i class="fas fa-trash fa-3x"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

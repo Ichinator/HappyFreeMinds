@@ -7,12 +7,11 @@
         {% if atelier.end > date('now'|date('Y/m/d')) %}
             <div class="jumbotron">
                 <h1 class="text-center">{{ atelier.title }}</h1>
-                <h3 class="text-center">Du {{ atelier.start|date("d/m/Y") }} à {{ atelier.start|date("h") }} heure
+                <h3 class="text-center">Du {{ atelier.start|date("d/m/Y") }} à {{ atelier.start|date("h") }}h
                     {% if atelier.start|date("i") != 0 %}
                         {{ atelier.start|date("i") }}
                     {% endif %}
-                    au {{ atelier.end|date("d/m/Y") }} à {{ atelier.end|date("h") }} heure
-
+                    au {{ atelier.end|date("d/m/Y") }} à {{ atelier.end|date("h") }}h
                     {% if atelier.end|date("i") != 0 %}
                         {{ atelier.end|date("i") }}
                     {% endif %}
@@ -26,5 +25,7 @@
 
 
     {% endfor %}
+
+
 
 {% endblock %}

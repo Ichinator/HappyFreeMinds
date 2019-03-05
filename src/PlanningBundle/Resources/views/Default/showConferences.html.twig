@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container-fluid">
+        {% for conference in conferences %}
+
+
+                {% if conference.end > date('now'|date('Y/m/d')) %}
+                    <div class="jumbotron">
+                    <div class="row">
+                        <div class="col-3">
+                            <img src="{{ vich_uploader_asset(conference, 'imageFile', 'PlanningBundle\\Entity\\Conferences') }}" alt="{{ conference.image }}" class="mx-auto d-block"/>
+                        </div>
+                        <div class="col-9">
+                            <h1 class="text-center" style="color: #9333ff">{{ conference.title }}</h1>
+                            <h3 class="text-center">Du {{ conference.start|date("d/m/Y") }} à {{ conference.start|date("h") }}h
+                                {% if conference.start|date("i") != 0 %}
+                                    {{ conference.start|date("i") }}
+                                {% endif %}
+                                {% if conference.start|date("d/m/Y") != conference.end|date("d/m/Y") %}
+                                    au {{ conference.end|date("d/m/Y") }}
+                                {% endif %}
+                                à {{ conference.end|date("h") }}h
+                                {% if conference.end|date("i") != 0 %}
+                                    {{ conference.end|date("i") }}
+                                {% endif %}
+
+                            </h3>
+
+                            {{ conference.description|raw }}
+                        </div>
+
+                    </div>
+                {% endif %}
+            </div>
+
+
+
+
+        {% endfor %}
+    </div>
+
+
+
+
+{% endblock %}

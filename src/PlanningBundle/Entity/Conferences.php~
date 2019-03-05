@@ -12,11 +12,11 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Schedule
  *
- * @ORM\Table(name="ateliers")
- * @ORM\Entity(repositoryClass="PlanningBundle\Repository\AteliersRepository")
+ * @ORM\Table(name="conferences")
+ * @ORM\Entity(repositoryClass="PlanningBundle\Repository\ConferencesRepository")
  * @Vich\Uploadable
  */
-class Ateliers
+class Conferences
 {
     /**
      * @var int
@@ -62,7 +62,7 @@ class Ateliers
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="ateliers_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="conferences_images", fileNameProperty="image")
      * @var File
      *
      * @Assert\NotBlank(message="Vous avez oublié l image")

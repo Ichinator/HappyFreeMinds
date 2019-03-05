@@ -65,6 +65,7 @@ class FullCalendarListener
             // $bookingEvent->setBackgroundColor($booking->getColor());
             // $bookingEvent->setCustomField('borderColor', $booking->getColor());
 
+
             $atelierEvent->setUrl(
                 $this->router->generate('planning', array(
                     'id' => $atelier->getId(),

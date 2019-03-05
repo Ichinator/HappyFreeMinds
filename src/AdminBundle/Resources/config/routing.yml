@@ -6,3 +6,37 @@ createAteliers:
     path:     /createAteliers
     defaults: { _controller: AdminBundle:Default:createAteliers }
 
+allAteliers:
+    path:     /listeAteliers
+    defaults: { _controller: AdminBundle:Default:allAteliers }
+
+removeAteliers:
+    path:     /removeAteliers/{id}
+    defaults: { _controller: AdminBundle:Default:removeAteliers }
+
+modifyAteliers:
+    path:     /modifyAteliers/{id}
+    defaults: { _controller: AdminBundle:Default:modifyAteliers }
+
+
+createConferences:
+    path:     /createConferences
+    defaults: { _controller: AdminBundle:Default:createConferences }
+
+allConferences:
+    path:     /listeConferences
+    defaults: { _controller: AdminBundle:Default:allConferences }
+
+removeConferences:
+    path:     /removeConferences/{id}
+    defaults: { _controller: AdminBundle:Default:removeConferences }
+
+modifyConferences:
+    path:     /modifyConferences/{id}
+    defaults: { _controller: AdminBundle:Default:modifyConferences}
+
+videos:
+    path:     /videos
+    defaults: { _controller: AdminBundle:Default:videos}
+
+

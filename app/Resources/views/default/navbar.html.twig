@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-light" style="color: #4933ff"> <!-- corriger la couleur -->
     <a class="navbar-brand" href="{{ path('homepage') }}">Happy Free Minds</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,40 +10,42 @@
                 <a class="nav-link" href="#">Qui sommes-nous ?</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('planning') }}">Planning</a>
+                <a class="nav-link" href="{{ path('ateliers') }}">Ateliers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('ateliers') }}">Ateliers</a>
+                <a class="nav-link" href="{{ path('conferences') }}">Conférences</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Coaching</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Interventions entreprises</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Conférences</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#">Evènements</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('entreprise') }}">Espace entreprise</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Témoignages</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Galérie photos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Biblio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Vidéos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Témoignages</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Galérie photos</a>
+                <a class="nav-link" href="{{ path('video') }}">Vidéos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('fos_user_security_login') }}">Se connecter</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('fos_user_registration_register') }}">S'enregistrer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('planning') }}">Planning</a>
             </li>
         </ul>
     </div>

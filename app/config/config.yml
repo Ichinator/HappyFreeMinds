@@ -10,7 +10,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-    app.path.ateliers_images: /uploads/images/Ateliers
+    app.path.ateliers_images: '/uploads/images/Ateliers'
+    app.path.conferences_images: '/uploads/images/Conferences'
 
 framework:
     templating:
@@ -93,7 +94,7 @@ fos_ck_editor:
     configs:
         adminConfig:
             # More config here https://ckeditor.com/old/sites/default/files/uploads/Complete%20List%20of%20Toolbar%20Items%20for%20CKEditor.pdf
-            toolbar:    [ [ "Source" ], [ "Maximize" ],["Bold","Italic", "Underline","Strike", "Subscript", "Superscript", "RemoveFormat", "TextColor"], ["Outdent", "Indent", "Blockquote", "CreateDiv", "JustifyLeft","JustifyCenter", "JustifyRight"] ]
+            toolbar:    [ [ "Source" ], [ "Maximize" ],["Bold","Italic", "Underline","Strike", "Subscript", "Superscript", "RemoveFormat", "TextColor", "FontSize"], ["Outdent", "Indent", "Blockquote", "CreateDiv", "JustifyLeft","JustifyCenter", "JustifyRight"] ]
             uiColor:                "#45aaf2"
 
 vich_uploader:
@@ -101,5 +102,9 @@ vich_uploader:
     mappings:
         ateliers_images:
             uri_prefix:         '%app.path.ateliers_images%'
-            upload_destination: '%kernel.root_dir%/../web/uploads/images/Ateliers'
-            #upload_destination: '%kernel.project_dir%/public%app.path.ateliers_images%'
+            upload_destination: '%kernel.root_dir%/web/uploads/images/Ateliers'
+            namer: vich_uploader.namer_uniqid
+        conferences_images:
+            uri_prefix:         '%app.path.conferences_images%'
+            upload_destination: '%kernel.root_dir%/web/uploads/images/Conferences'
+            namer: vich_uploader.namer_uniqid
