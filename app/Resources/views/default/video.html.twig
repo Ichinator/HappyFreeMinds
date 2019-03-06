@@ -1,20 +1,53 @@
 {% extends '::base.html.twig' %}
-
+{% block stylesheets %}
+   {{ parent() }}
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+{% endblock %}
 {% block body %}
     {{ parent() }}
-    <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/7hhVeRqfcjo"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/9hxjKnDN_QY"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
     {% for theme in themes %}
-        <button class="btn btn-default">{{ theme.title }}</button>
+        <button class="btn btn-default" id="{{ theme.title|replace(' ', '-') }}">{{ theme.title }}</button>
     {% endfor %}
+
+    <button class="btn btn-default" id="all">Tout afficher</button>
     <br>
-    {% for video in videos %}
-        <iframe width="560" height="315" src={{ video.path }}
-        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-    {% endfor %}
+        {% for video in videos %}
+                <iframe width="560" height="315" src="{{ video.path }}" class="{{ video.theme.title|replace(' ', '-') }} hidden"
+                        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+        {% endfor %}
 
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('iframe.hidden').fadeIn(4000).removeClass('hidden');
+            {% for theme in themes %}
+
+                $( "#{{ theme.title|replace(' ', '-') }}" ).click(function() {
+                    $( "iframe.{{ theme.title|replace(' ', '-')}}" ).fadeToggle();
+                    if($(this).hasClass("btn-default")){
+                        $(this).removeClass("btn-default");
+                        $(this).addClass("btn-primary");
+                    }else{
+                        $(this).removeClass("btn-primary").addClass("btn-default");
+                    }
+
+                });
+            {% endfor %}
+
+            $( "#all" ).click(function() {
+                $( "iframe" ).fadeIn();
+                $("button").removeClass("btn-primary").addClass("btn-default");
+            });
+        })
+    </script>
 {% endblock %}
